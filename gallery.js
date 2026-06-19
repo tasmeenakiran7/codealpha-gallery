@@ -13,7 +13,9 @@ const closeBtn = document.querySelector(".close");
 ========================= */
 const defaultImages = {
   camera: [
-    "images/quran1.png",
+    ""camera": [
+  "https://raw.githubusercontent.com/tasmeenakiran7/codealpha-gallery/main/images/quran1.png"
+],
     "images/quran2.png",
     
   ],
