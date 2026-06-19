@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Vault</title>
+
+<link rel="stylesheet" href="trash.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+<div class="trash-container">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <a href="folders.html" class="back-btn">← Back</a>
+    <h1>🔒 Private Vault</h1>
+  </div>
+
+  <div style="text-align:center; margin: 15px;">
+    <button onclick="changeVaultPin()">🔁 Change PIN</button>
+    <button onclick="resetVaultPin()">❌ Reset PIN</button>
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div id="emptyState" style="text-align:center; margin-top:40px; opacity:0.7;">
+    <i class='bx bxs-lock-alt' style="font-size:70px;"></i>
+    <p>No secured media found</p>
+  </div>
+
+  <!-- GRID -->
+  <div id="vaultGrid" class="gallery-grid"></div>
+
+</div>
+
+<script>
+let vault = JSON.parse(localStorage.getItem("vault")) || [];
+let images = JSON.parse(localStorage.getItem("images")) || {};
+
+const grid = document.getElementById("vaultGrid");
+const empty = document.getElementById("emptyState");
+
+/* ======================
+   RENDER VAULT
+====================== */
+function renderVault() {
+  grid.innerHTML = "";
+
+  if (!vault || vault.length === 0) {
+    empty.style.display = "block";
+    return;
+  }
+
+  empty.style.display = "none";
+
+  vault.forEach((item, index) => {
+
+    // 🔥 FIX: handle both string & object
+    let imgSrc = typeof item === "string" ? item : item.img;
+
+    grid.innerHTML += `
+      <div class="image-card">
+
+        <img src="${imgSrc}" 
+             onerror="this.src='/images/fallback.png'">
+
+        <!-- DELETE -->
+        <button class="delete-btn" onclick="removeFromVault(${index})">
+          <i class='bx bx-trash'></i>
+        </button>
+
+        <!-- RESTORE -->
+        <button class="restore-btn" onclick="restoreFromVault(${index})">
+          🔄
+        </button>
+
+      </div>
+    `;
+  });
+}
+
+/* ======================
+   DELETE FROM VAULT
+====================== */
+function removeFromVault(index) {
+  vault.splice(index, 1);
+  localStorage.setItem("vault", JSON.stringify(vault));
+  renderVault();
+}
+
+/* ======================
+   RESTORE TO GALLERY
+====================== */
+function restoreFromVault(index) {
+
+  let item = vault[index];
+  if (!item) return;
+
+  let imgSrc = typeof item === "string" ? item : item.img;
+  let folder = item.folder || "camera";
+
+  if (!images[folder]) {
+    images[folder] = [];
+  }
+
+  images[folder].push(imgSrc);
+
+  vault.splice(index, 1);
+
+  localStorage.setItem("vault", JSON.stringify(vault));
+  localStorage.setItem("images", JSON.stringify(images));
+
+  renderVault();
+}
+
+renderVault();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
