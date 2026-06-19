@@ -13,8 +13,8 @@ const closeBtn = document.querySelector(".close");
 ========================= */
 const defaultImages = {
   camera: [
-    "images/quran1.png",
-    "images/quran2.png",
+    "/images/quran1.png",
+    "/images/quran2.png",
     
   ],
   screenshots: [
