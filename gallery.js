@@ -17,23 +17,28 @@ const defaultImages = {
     "images/quran2.png",
     "images/quran3.png"
   ],
+
   screenshots: [
     "images/n1.jfif",
     "images/n2.jfif",
     "images/n3.jfif"
   ],
+
   whatsapp: [
     "images/n4.jfif",
     "images/n5.jfif"
   ],
+
   downloads: [
     "images/n6.jfif",
     "images/n7.jfif"
   ],
+
   snapchat: [
     "images/n8.jfif",
     "images/n3.jfif"
   ],
+
   pictures: [
     "images/n11.jfif",
     "images/n12.jfif",
@@ -51,8 +56,8 @@ if (!images || typeof images !== "object") {
   localStorage.setItem("images", JSON.stringify(images));
 }
 
-let trash = JSON.parse(localStorage.getItem("trash")) || [];
-let vault = JSON.parse(localStorage.getItem("vault")) || [];
+let trash = JSON.parse(localStorage.getItem("trash") || "[]");
+let vault = JSON.parse(localStorage.getItem("vault") || "[]");
 
 /* SAVE */
 function saveData() {
@@ -81,7 +86,6 @@ function renderGallery() {
 
     div.innerHTML = `
       <img src="${img}" alt="image">
-
       <button class="delete-btn">🗑️</button>
       <button class="vault-btn">🔒</button>
     `;
@@ -124,13 +128,10 @@ function moveToVault(folderName, index, imageData) {
 
   if (!images[folderName]) return;
 
-  let vault = JSON.parse(localStorage.getItem("vault")) || [];
-
-  // 💥 FIX: always normalize path
-  let safePath = imageData;
+  let vault = JSON.parse(localStorage.getItem("vault") || "[]");
 
   vault.push({
-    img: safePath,
+    img: imageData,
     folder: folderName
   });
 
