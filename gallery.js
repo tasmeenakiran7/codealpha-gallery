@@ -18,9 +18,8 @@ const defaultImages = {
     
   ],
   screenshots: [
-    "https://picsum.photos/500/600?4",
-    "https://picsum.photos/500/600?5",
-    "https://picsum.photos/500/600?6"
+    "images/quran1.png",
+    "images/quran2.png",
   ],
   whatsapp: [
     "https://picsum.photos/500/600?7",
