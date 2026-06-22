@@ -12,10 +12,11 @@ const closeBtn = document.querySelector(".close");
    DEFAULT IMAGES
 ========================= */
 const defaultImages = {
-     camera: [
-    "images/quran1.png",
-    "images/quran2.png"
-  ]
+  camera: [
+    "/images/quran1.png",
+    "/images/quran2.png",
+    
+  ],
   screenshots: [
     "https://picsum.photos/500/600?4",
     "https://picsum.photos/500/600?5",
