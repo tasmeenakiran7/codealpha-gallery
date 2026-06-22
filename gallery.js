@@ -37,9 +37,9 @@ const defaultImages = {
   ],
   pictures: [
     "images/n11.jfif",
-    "images/n12.jfif"
+    "images/n12.jfif",
     "images/n13.jfif"
-  ]
+  ],
 };
 
 /* =========================
