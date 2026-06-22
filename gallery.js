@@ -15,27 +15,30 @@ const defaultImages = {
   camera: [
     "images/quran1.png",
     "images/quran2.png",
+    "images/quran3.png",
     
   ],
   screenshots: [
-    "images/quran1.png",
-    "images/quran2.png",
+    "images/n1.jfif",
+    "images/n2.jfif",
+    "images/n3.jfif",
   ],
   whatsapp: [
-    "https://picsum.photos/500/600?7",
-    "https://picsum.photos/500/600?8"
+    "images/n4.jfif",
+    "images/n5.jfif"
   ],
   downloads: [
-    "https://picsum.photos/500/600?9",
-    "https://picsum.photos/500/600?10"
+    "images/n6.jfif",
+    "images/n7.jfif"
   ],
   snapchat: [
-    "https://picsum.photos/500/600?11",
-    "https://picsum.photos/500/600?12"
+    "images/n8.jfif",
+    "images/n3.jfif"
   ],
   pictures: [
-    "https://picsum.photos/500/600?13",
-    "https://picsum.photos/500/600?14"
+    "images/n11.jfif",
+    "images/n12.jfif"
+    "images/n13.jfif"
   ]
 };
 
