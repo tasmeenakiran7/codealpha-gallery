@@ -15,13 +15,13 @@ const defaultImages = {
   camera: [
     "images/quran1.png",
     "images/quran2.png",
-    "images/quran3.png",
+    "images/quran3.png"
     
   ],
   screenshots: [
     "images/n1.jfif",
     "images/n2.jfif",
-    "images/n3.jfif",
+    "images/n3.jfif"
   ],
   whatsapp: [
     "images/n4.jfif",
