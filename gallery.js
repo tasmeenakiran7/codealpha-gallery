@@ -128,10 +128,6 @@ function moveToVault(folderName, index, imageData) {
   // 💥 FIX: always normalize path
   let safePath = imageData;
 
-  if (!safePath.startsWith("http")) {
-    safePath = safePath.startsWith("/") ? safePath : "/" + safePath;
-  }
-
   vault.push({
     img: safePath,
     folder: folderName
