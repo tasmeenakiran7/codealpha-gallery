@@ -16,36 +16,35 @@ const defaultImages = {
     "images/quran1.png",
     "images/quran2.png",
     "images/quran3.png"
-    
-  ],
+  ]
   screenshots: [
     "images/n1.jfif",
     "images/n2.jfif",
     "images/n3.jfif"
-  ],
+  ]
   whatsapp: [
     "images/n4.jfif",
     "images/n5.jfif"
-  ],
+  ]
   downloads: [
     "images/n6.jfif",
     "images/n7.jfif"
-  ],
+  ]
   snapchat: [
     "images/n8.jfif",
     "images/n3.jfif"
-  ],
+  ]
   pictures: [
     "images/n11.jfif",
     "images/n12.jfif",
     "images/n13.jfif"
-  ],
+  ]
 };
 
 /* =========================
    LOAD / INIT DATA
 ========================= */
-let images = JSON.parse(localStorage.getItem("images"));
+let images = JSON.parse(localStorage.getItem("images") || "null");
 
 if (!images || typeof images !== "object") {
   images = structuredClone(defaultImages);
